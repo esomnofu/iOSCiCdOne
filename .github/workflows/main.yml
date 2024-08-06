@@ -20,23 +20,18 @@ jobs:
           persist-credentials: false
           ref: ${{ github.event.inputs.checkoutRef }}
     
-    
-#    steps:
-#    - name: Checkout repository
-#      uses: actions/checkout@v3
-#
 ##    - name: Set up Xcode
 ##      uses: actions/setup-xcode@v3
 ##      with:
 ##        xcode-version: '12.0' # Choose the appropriate version
-#
-#    - name: Install dependencies
-#      run: |
-#        bundle install
-#        bundle exec fastlane install_plugins
-#
-#    - name: Build and test
-#      run: bundle exec fastlane build_and_test
+
+      - name: Install dependencies
+        run: |
+          bundle install
+          bundle exec fastlane install_plugins
+
+      - name: Build and test
+        run: bundle exec fastlane build_and_test
 
   deploy:
     runs-on: macOS-latest
@@ -44,11 +39,14 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
-    - name: Set up Xcode
-      uses: actions/setup-xcode@v4
       with:
-        xcode-version: '12.0' # Choose the appropriate version
+        persist-credentials: false
+        ref: ${{ github.event.inputs.checkoutRef }}
+
+#    - name: Set up Xcode
+#      uses: actions/setup-xcode@v3
+#      with:
+#        xcode-version: '12.0' # Choose the appropriate version
 
     - name: Install dependencies
       run: |
