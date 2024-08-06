@@ -14,21 +14,31 @@ jobs:
     runs-on: macOS-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-#    - name: Set up Xcode
-#      uses: actions/setup-xcode@v3
-#      with:
-#        xcode-version: '12.0' # Choose the appropriate version
-
-    - name: Install dependencies
-      run: |
-        bundle install
-        bundle exec fastlane install_plugins
-
-    - name: Build and test
-      run: bundle exec fastlane build_and_test
+    - uses: actions/checkout@master
+    - uses: sinoru/actions-setup-xcode@v2
+      with:
+        xcode-version: '15.4' # Exact version of a Xcode version to use
+        apple-id: 'mresomnofu@gmail.com' # Apple ID to download from Apple Developer when Xcode not available in local
+        apple-id-password: ${{ secrets.APPLE_ID_PASSWORD }}
+    - run: fastlane scan
+    
+    
+#    steps:
+#    - name: Checkout repository
+#      uses: actions/checkout@v3
+#
+##    - name: Set up Xcode
+##      uses: actions/setup-xcode@v3
+##      with:
+##        xcode-version: '12.0' # Choose the appropriate version
+#
+#    - name: Install dependencies
+#      run: |
+#        bundle install
+#        bundle exec fastlane install_plugins
+#
+#    - name: Build and test
+#      run: bundle exec fastlane build_and_test
 
   deploy:
     runs-on: macOS-latest
