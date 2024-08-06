@@ -14,13 +14,11 @@ jobs:
     runs-on: macOS-latest
 
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/checkout@v3
-      with:
-        xcode-version: '15.4' # Exact version of a Xcode version to use
-        apple-id: 'mresomnofu@gmail.com' # Apple ID to download from Apple Developer when Xcode not available in local
-        apple-id-password: ${{ secrets.APPLE_ID_PASSWORD }}
-    - run: fastlane scan
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.inputs.checkoutRef }}
     
     
 #    steps:
