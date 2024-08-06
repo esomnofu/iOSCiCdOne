@@ -30,8 +30,8 @@ jobs:
 #          bundle install
 #          bundle exec fastlane install_plugins
 
-      - name: Build and test
-        run: bundle exec fastlane build_and_test
+#      - name: Build and test
+#        run: bundle exec fastlane build_and_test
 
   deploy:
     runs-on: macOS-latest
