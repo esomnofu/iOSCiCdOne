@@ -20,10 +20,10 @@ jobs:
           persist-credentials: false
           ref: ${{ github.event.inputs.checkoutRef }}
     
-##    - name: Set up Xcode
-##      uses: actions/setup-xcode@v3
-##      with:
-##        xcode-version: '12.0' # Choose the appropriate version
+      - name: Set up Xcode
+        uses: actions/setup-xcode@v3
+        with:
+          xcode-version: '12.0'
 
 #      - name: Install dependencies
 #        run: |
