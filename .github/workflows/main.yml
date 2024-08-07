@@ -20,10 +20,10 @@ jobs:
           persist-credentials: false
           ref: ${{ github.event.inputs.checkoutRef }}
     
-      - name: Set up Xcode
-        uses: actions/setup-xcode@v3
-        with:
-          xcode-version: '12.0'
+#      - name: Set up Xcode
+#        uses: actions/setup-xcode@v3
+#        with:
+#          xcode-version: '12.0'
 
 #      - name: Install dependencies
 #        run: |
@@ -53,8 +53,8 @@ jobs:
 #        bundle install
 #        bundle exec fastlane install_plugins
 
-    - name: Upload to TestFlight
-      run: bundle exec fastlane upload_to_testflight
+#    - name: Upload to TestFlight
+#      run: bundle exec fastlane upload_to_testflight
 
     # - name: Deploy to App Store
     #   run: bundle exec fastlane deploy_to_app_store
