@@ -1,8 +1,17 @@
 name: "CI/CD App"
 
+#on:
+#  workflow_dispatch:
+#    branches: [main]
+
 on:
-  workflow_dispatch:
-    branches: [main]
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 
 jobs:
   build_with_signing:
