@@ -1,6 +1,3 @@
-Working main.yml
-
-
 name: CI/CD for iOS
 
 on:
