@@ -14,6 +14,7 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+            Text("Welcome Onboard, Mercury!")
             Text("Welcome Onboard, Jupiter!")
             Text("Welcome Onboard, Neptune!")
             Text("Welcome Onboard, Saturn!")
